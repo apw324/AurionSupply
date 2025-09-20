@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Precision Aerospace Supplies</title>
+  <style>
+    /* Basic Reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+    
+    body { line-height: 1.6; background-color: #f4f4f4; color: #333; }
+
+    /* Header */
+    header { background: #0b3d91; color: #fff; padding: 20px 0; text-align: center; }
+    header h1 { font-size: 2em; margin-bottom: 5px; }
+    header p { font-size: 1.1em; }
+
+    /* Navigation */
+    nav { background: #062b61; padding: 10px 0; }
+    nav ul { display: flex; justify-content: center; list-style: none; }
+    nav ul li { margin: 0 15px; }
+    nav ul li a { color: #fff; text-decoration: none; font-weight: bold; }
+    nav ul li a:hover { text-decoration: underline; }
+
+    /* Hero Section */
+    .hero { background: url('https://images.unsplash.com/photo-1581092339342-95d2b2f6e6a3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8YXJpbmNydWFmdHxlbnwwfHx8fDE2OTU5NjQ3MjI&ixlib=rb-4.0.3&q=80&w=1080') no-repeat center center/cover; color: #fff; padding: 80px 20px; text-align: center; }
+    .hero h2 { font-size: 2.5em; margin-bottom: 20px; }
+    .hero p { font-size: 1.2em; margin-bottom: 30px; }
+    .hero a { background: #ff6b00; color: #fff; padding: 12px 25px; text-decoration: none; font-weight: bold; border-radius: 5px; }
+    .hero a:hover { background: #e55b00; }
+
+    /* Sections */
+    section { padding: 60px 20px; max-width: 1200px; margin: auto; }
+
+    h2.section-title { text-align: center; color: #0b3d91; margin-bottom: 40px; font-size: 2em; }
+
+    .products, .about, .contact { display: flex; flex-wrap: wrap; justify-content: space-around; }
+    .product-card, .contact-card { background: #fff; border-radius: 10px; padding: 20px; margin: 15px; flex: 1 1 300px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+    .product-card h3, .contact-card h3 { margin-bottom: 15px; color: #0b3d91; }
+
+    .product-card p { margin-bottom: 10px; }
+    
+    /* Contact Form */
+    form { display: flex; flex-direction: column; }
+    input, textarea { padding: 10px; margin-bottom: 15px; border-radius: 5px; border: 1px solid #ccc; font-size: 1em; }
+    button { padding: 12px; background: #0b3d91; color: #fff; border: none; border-radius: 5px; font-size: 1.1em; cursor: pointer; }
+    button:hover { background: #062b61; }
+
+    /* Footer */
+    footer { background: #0b3d91; color: #fff; text-align: center; padding: 20px 0; margin-top: 40px; }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Precision Aerospace Supplies</h1>
+    <p>Your trusted partner for aerospace & defense consumables</p>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <h2>High-Quality Aerospace & Defense Consumables</h2>
+    <p>Fast, reliable supply of lubricants, filters, and maintenance materials to international markets.</p>
+    <a href="#contact">Get Started</a>
+  </div>
+
+  <!-- Products Section -->
+  <section id="products">
+    <h2 class="section-title">Our Products</h2>
+    <div class="products">
+      <div class="product-card">
+        <h3>Aviation Hydraulic Fluids</h3>
+        <p>FAA-approved, MIL-PRF-5606 and MIL-PRF-83282 spec fluids.</p>
+        <p>High-performance lubricants for military and commercial aircraft.</p>
+      </div>
+      <div class="product-card">
+        <h3>Aircraft Fuel & Hydraulic Filters</h3>
+        <p>OEM-approved filtration systems for aviation fuel and hydraulic systems.</p>
+        <p>Ensures engine and system longevity under harsh operating conditions.</p>
+      </div>
+      <div class="product-card">
+        <h3>Activated Carbon & Specialty Filters</h3>
+        <p>High-grade filtration media for water, air, and chemical defense applications.</p>
+        <p>Traceable, certified, and export-ready for allied defense organizations.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2 class="section-title">About Us</h2>
+    <div class="about">
+      <div class="contact-card">
+        <h3>Our Mission</h3>
+        <p>We connect U.S. aerospace consumables suppliers with global defense and aviation markets, providing certified, traceable products with fast delivery.</p>
+      </div>
+      <div class="contact-card">
+        <h3>Why Choose Us</h3>
+        <p>Focus on compliance, quality, and reliability. Our team ensures every shipment meets OEM and international standards.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2 class="section-title">Contact Us</h2>
+    <div class="contact">
+      <div class="contact-card">
+        <form>
+          <h3>Get in Touch</h3>
+          <input type="text" placeholder="Your Name" required>
+          <input type="email" placeholder="Your Email" required>
+          <input type="text" placeholder="Company / Organization">
+          <textarea placeholder="Your Message" rows="5" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+      <div class="contact-card">
+        <h3>Our Details</h3>
+        <p>Email: info@precisionaerosupplies.com</p>
+        <p>Phone: +1 (201) 555-0123</p>
+        <p>Address: 123 Aviation Drive, Newark, NJ, USA</p>
+        <p>Follow us on LinkedIn: <a href="#" style="color:#0b3d91;">LinkedIn Profile</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Precision Aerospace Supplies. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
