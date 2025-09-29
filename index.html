@@ -7,258 +7,188 @@
   <style>
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: Arial, sans-serif;
       background-color: #000;
       color: #fff;
+      line-height: 1.5;
+      display: flex;
+    }
+
+    /* Fixed left image column */
+    .side-images {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 200px;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background-color: #000;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+    .side-images img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+
+    /* Main content area */
+    .content {
+      margin-left: 220px; /* space for side images */
+      width: calc(100% - 220px);
     }
 
     header {
       background-color: #111;
-      padding: 20px;
       text-align: center;
+      padding: 1.5rem 1rem;
     }
-
     header h1 {
-      color: #d4af37;
-      font-size: 2.5em;
+      color: gold;
+      font-size: 2rem;
       margin: 0;
     }
 
-    .hero {
-      text-align: center;
-      padding: 60px 20px;
-      background: url('https://images.unsplash.com/photo-1523966211575-eb4a4c1d6ae4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80') no-repeat center center/cover;
-      color: #fff;
-    }
-
-    .hero h2 {
-      font-size: 2.5em;
-      text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
-    }
-
     .section {
-      padding: 50px 20px;
-      text-align: center;
+      padding: 1.5rem;
+      max-width: 900px;
+      margin: auto;
     }
-
     .section h2 {
-      color: #d4af37;
-      margin-bottom: 30px;
-      font-size: 2em;
-    }
-
-    .photos {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      flex-wrap: wrap;
-    }
-
-    .photo-card {
-      background: #111;
-      border: 1px solid #333;
-      border-radius: 10px;
-      padding: 20px;
-      width: 280px;
+      color: gold;
+      margin-bottom: 0.75rem;
       text-align: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-    }
-
-    .photo-card img {
-      width: 100%;
-      border-radius: 10px;
+      font-size: 1.5rem;
     }
 
     .products {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
     }
-
-    .product-card {
-      background: #111;
-      border: 1px solid #333;
-      border-radius: 10px;
-      padding: 20px;
-      width: 280px;
+    .card {
+      background-color: #111;
+      padding: 1rem;
+      border: 1px solid gold;
+      border-radius: 6px;
       text-align: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
     }
-
-    .quote-btn {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 10px 20px;
-      background-color: #d4af37;
-      color: #000;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: bold;
-      transition: background-color 0.3s ease;
-    }
-
-    .quote-btn:hover {
-      background-color: #b8902f;
-      color: #fff;
-    }
-
-    .about {
-      max-width: 900px;
-      margin: 0 auto;
-      line-height: 1.6;
-      font-size: 1.1em;
-    }
-
-    form {
-      max-width: 600px;
-      margin: 0 auto;
-      background: #111;
-      padding: 30px;
-      border-radius: 10px;
-      border: 1px solid #333;
-      text-align: left;
-    }
-
-    form label {
-      display: block;
-      margin-bottom: 0.5rem;
-      color: #d4af37;
-      font-weight: bold;
-    }
-
-    form input, form textarea {
+    .card img {
       width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      border-radius: 5px;
-      border: 1px solid #444;
-      background: #000;
+      height: auto;
+      margin-bottom: 0.75rem;
+      border-radius: 6px;
+    }
+
+    .form-section form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .form-section input, .form-section textarea {
+      padding: 0.6rem;
+      border: 1px solid gold;
+      border-radius: 6px;
+      background-color: #000;
       color: #fff;
     }
-
-    form textarea {
-      min-height: 120px;
-      resize: vertical;
-    }
-
-    form button {
-      background-color: #d4af37;
+    .form-section button {
+      padding: 0.6rem;
+      background-color: gold;
       color: #000;
       border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      font-weight: bold;
+      border-radius: 6px;
       cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    form button:hover {
-      background-color: #b8902f;
-      color: #fff;
+      font-weight: bold;
     }
 
     footer {
       background-color: #111;
       text-align: center;
-      padding: 20px;
-      color: #888;
-      font-size: 0.9em;
-    }
-
-    footer a {
-      color: #d4af37;
-      text-decoration: none;
+      padding: 1rem;
+      color: #aaa;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
-
-  <header>
-    <h1>Aurion Supply</h1>
-  </header>
-
-  <div class="hero">
-    <h2>Precision Components for Aerospace & Defense</h2>
+  <!-- Fixed Side Images -->
+  <div class="side-images">
+    <img src="1.jpg" alt="Cosmetic Image 1">
+    <img src="2.jpg" alt="Cosmetic Image 2">
+    <img src="3.jpg" alt="Cosmetic Image 3">
   </div>
 
-  <section id="photos" class="section">
-    <h2>Gallery</h2>
-    <div class="photos">
-      <div class="photo-card">
-        <img src="1.jpg" alt="Gallery Image 1">
-      </div>
-      <div class="photo-card">
-        <img src="2.jpg" alt="Gallery Image 2">
-      </div>
-      <div class="photo-card">
-        <img src="3.jpg" alt="Gallery Image 3">
-      </div>
-    </div>
-  </section>
+  <!-- Main Content -->
+  <div class="content">
+    <header>
+      <h1>Aurion Supply</h1>
+      <p>Precision Components for Aerospace & Defense</p>
+    </header>
 
-  <section id="about" class="section">
-    <h2>About Aurion Supply</h2>
-    <div class="about">
+    <!-- Products -->
+    <section class="section">
+      <h2>Our Products</h2>
+      <div class="products">
+        <div class="card">
+          <img src="1.jpg" alt="Specialty Aerospace Fasteners">
+          <h3>Specialty Aerospace Fasteners</h3>
+          <p>High-performance fasteners engineered for aerospace and defense applications.</p>
+        </div>
+        <div class="card">
+          <img src="2.jpg" alt="Defense-Grade Components">
+          <h3>Defense-Grade Components</h3>
+          <p>Reliable, certified components for defense contractors and military supply chains.</p>
+        </div>
+        <div class="card">
+          <img src="3.jpg" alt="Precision Engineering Supplies">
+          <h3>Precision Engineering Supplies</h3>
+          <p>Tools, fittings, and components to support high-spec engineering projects.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="section">
+      <h2>About Aurion Supply</h2>
       <p>
-        At <strong>Aurion Supply</strong>, we specialize in sourcing and delivering precision-engineered products 
-        for aerospace, defense, and industrial sectors. Our mission is to bridge international manufacturing excellence 
-        with U.S. market needs. 
+        Aurion Supply provides specialized aerospace and defense components, focusing on uncompromising quality, certification, and timely delivery. 
+        With expertise in international sourcing and distribution, we ensure our clients receive only the highest-grade products at competitive prices.
       </p>
-      <p>
-        With a strong network of certified global partners and an unwavering commitment to quality, 
-        Aurion Supply ensures that every product we deliver meets the highest standards of compliance and performance.
-      </p>
-    </div>
-  </section>
+    </section>
 
-  <section id="products" class="section">
-    <h2>Our Products</h2>
-    <div class="products">
-      <div class="product-card">
-        <h3>Aviation Hydraulic Fluids</h3>
-        <p>High-performance lubricants for military and commercial aircraft.</p>
-        <a href="#quote" class="quote-btn">Request a Quote</a>
-      </div>
-      <div class="product-card">
-        <h3>Aircraft Fuel & Hydraulic Filters</h3>
-        <p>OEM-approved filtration systems for aviation fuel and hydraulic systems.</p>
-        <a href="#quote" class="quote-btn">Request a Quote</a>
-      </div>
-      <div class="product-card">
-        <h3>Industrial Carbon Solutions</h3>
-        <p>Premium activated carbon and composites tailored for filtration, energy, and high-performance industries.</p>
-        <a href="#quote" class="quote-btn">Request a Quote</a>
-      </div>
-    </div>
-  </section>
+    <!-- Contact -->
+    <section class="section form-section">
+      <h2>Contact Us</h2>
+      <p>Phone: <strong>201-961-2651</strong></p>
+      <form action="https://formspree.io/f/xyzneazn" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="_replyto" placeholder="Your Email" required>
+        <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
 
-  <section id="contact" class="section">
-    <h2>Contact Us</h2>
-    <p>Email: <a href="mailto:info@aurionsupply.com">info@aurionsupply.com</a></p>
-    <p>Phone: <a href="tel:+12019612651">201-961-2651</a></p>
-  </section>
+    <!-- Request a Quote -->
+    <section class="section form-section">
+      <h2>Request a Quote</h2>
+      <form action="https://formspree.io/f/xyzneazn" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="_replyto" placeholder="Your Email" required>
+        <input type="text" name="product" placeholder="Product of Interest" required>
+        <textarea name="details" rows="4" placeholder="Additional Details"></textarea>
+        <button type="submit">Request Quote</button>
+      </form>
+    </section>
 
-  <section id="quote" class="section">
-    <h2>Request a Quote</h2>
-    <form action="https://formspree.io/f/xyzneazn" method="POST">
-      <label for="name">Name</label>
-      <input type="text" name="name" required>
-
-      <label for="email">Email</label>
-      <input type="email" name="email" required>
-
-      <label for="message">Message</label>
-      <textarea name="message" required></textarea>
-
-      <button type="submit">Send Request</button>
-    </form>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 Aurion Supply. All rights reserved.</p>
-  </footer>
-
+    <footer>
+      <p>&copy; 2025 Aurion Supply. All rights reserved.</p>
+    </footer>
+  </div>
 </body>
 </html>
 
