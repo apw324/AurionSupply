@@ -10,11 +10,11 @@
     font-family: Arial, sans-serif;
     background-color: #000;
     color: #fff;
-    line-height: 1.5;
     display: flex;
+    line-height: 1.5;
   }
 
-  /* Left fixed sidebar with better spacing */
+  /* Sidebar */
   .side-images {
     position: fixed;
     top: 0;
@@ -23,58 +23,59 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-around; /* evenly spaced */
-    background-color: #000;
+    justify-content: space-between;
     padding: 10px;
     box-sizing: border-box;
+    background-color: #000;
   }
   .side-images img {
     width: 100%;
     border-radius: 6px;
     object-fit: cover;
   }
+  .side-images .logo {
+    max-height: 100px;
+    margin-bottom: 10px;
+    object-fit: contain;
+  }
 
   /* Main content */
   .content {
-    margin-left: 200px; /* space for sidebar */
+    margin-left: 200px;
     width: calc(100% - 200px);
+    padding-bottom: 2rem;
   }
 
   header {
-    background-color: #111;
     text-align: center;
     padding: 1.5rem 1rem;
+    background-color: #111;
   }
   header h1 {
     color: gold;
-    font-size: 2rem;
     margin: 0;
+    font-size: 2rem;
   }
   header p {
-    font-size: 1.1rem;
-    margin-top: 0.3rem;
     color: #ccc;
+    margin-top: 0.3rem;
+    font-size: 1.1rem;
   }
 
   .section {
-    padding: 1.2rem;
+    padding: 1.2rem 1rem;
     max-width: 900px;
     margin: auto;
   }
 
-  /* About section styling */
+  /* About section */
   .about-text {
-    font-size: 1.15rem;
-    line-height: 1.7;
-    padding: 1rem;
-    border-left: 4px solid gold;
+    font-size: 1rem;
+    line-height: 1.6;
     margin-bottom: 1.5rem;
   }
-  .about-text strong {
-    color: gold;
-  }
 
-  /* Products styling */
+  /* Products section */
   .products {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -96,7 +97,7 @@
     font-size: 0.95rem;
   }
 
-  /* Quote form */
+  /* Form section */
   .form-section form {
     display: flex;
     flex-direction: column;
@@ -120,7 +121,7 @@
     font-weight: bold;
   }
 
-  /* Contact styling */
+  /* Contact section */
   .contact-box {
     border: 1px solid gold;
     border-radius: 6px;
@@ -136,39 +137,41 @@
   }
 
   footer {
-    background-color: #111;
     text-align: center;
     padding: 1rem;
     margin-top: 2rem;
     color: #aaa;
     font-size: 0.9rem;
+    background-color: #111;
   }
 </style>
 </head>
 <body>
 
-  <!-- Left Sidebar Images -->
+  <!-- Sidebar with logo + images -->
   <div class="side-images">
+    <img src="ChatGPT Image Sep 29, 2025, 02_57_22 PM.jpg" alt="Logo" class="logo">
     <img src="250810-F-RN563-9073.jpg" alt="Side Image 1">
     <img src="250630-F-BQ566-9015.jpg" alt="Side Image 2">
     <img src="250810-Z-QD029-9005.jpg" alt="Side Image 3">
   </div>
 
   <div class="content">
+    <!-- Header -->
     <header>
       <h1>Aurion Supply</h1>
       <p>Precision Components for Aerospace & Defense</p>
     </header>
 
-    <!-- About -->
+    <!-- About Section -->
     <section class="section">
       <div class="about-text">
-        Aurion Supply provides specialized <strong>aerospace</strong> and <strong>defense</strong> components, focusing on uncompromising quality, certification, and timely delivery.  
-        With expertise in international sourcing and distribution, we ensure our clients receive only the highest-grade products at competitive prices.
+        Aurion Supply provides specialized aerospace and defense components, focusing on quality, certification, and reliable delivery. 
+        We connect international manufacturing expertise with U.S. market needs to provide high-grade products efficiently.
       </div>
     </section>
 
-    <!-- Products -->
+    <!-- Products Section -->
     <section class="section">
       <h2>Our Products</h2>
       <div class="products">
@@ -199,7 +202,7 @@
       </form>
     </section>
 
-    <!-- Contact -->
+    <!-- Contact Section -->
     <section class="section">
       <div class="contact-box">
         <p>Email: <a href="mailto:info@aurionsupply.com">info@aurionsupply.com</a></p>
