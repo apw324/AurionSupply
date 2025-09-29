@@ -34,15 +34,15 @@
     object-fit: cover;
     border-radius: 6px;
     margin-bottom: 10px;
-    opacity: 0.85; /* subtle transparency */
-    flex-grow: 1; /* make images expand evenly */
+    opacity: 0.85;
+    flex-grow: 1;
   }
   .side-images .logo {
     max-height: 120px;
-    flex-grow: 0; /* logo fixed height */
+    flex-grow: 0;
     margin-bottom: 10px;
     object-fit: contain;
-    opacity: 1; /* logo fully visible */
+    opacity: 1;
   }
 
   /* Main content */
@@ -50,12 +50,25 @@
     margin-left: 220px;
     width: calc(100% - 220px);
     padding-bottom: 2rem;
+    position: relative;
+  }
+
+  /* Watermark logo in top-left */
+  .watermark-logo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 150px;
+    opacity: 0.05;
+    z-index: 0;
   }
 
   header {
     text-align: center;
     padding: 1.5rem 1rem;
-    background-color: #111;
+    background-color: #000; /* fully black */
+    position: relative;
+    z-index: 1; /* ensure header content is above watermark */
   }
   header h1 {
     color: gold;
@@ -72,6 +85,8 @@
     padding: 1.2rem 1rem;
     max-width: 900px;
     margin: auto;
+    position: relative;
+    z-index: 1;
   }
 
   /* About section */
@@ -168,6 +183,9 @@
   </div>
 
   <div class="content">
+    <!-- Watermark logo -->
+    <img src="ChatGPT Image Sep 29, 2025, 02_57_22 PM.jpg" alt="Watermark Logo" class="watermark-logo">
+
     <!-- Header -->
     <header>
       <h1>Aurion Supply</h1>
