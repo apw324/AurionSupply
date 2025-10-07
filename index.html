@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aurion Supply</title>
+<title>Ward Mediterranean</title>
 <!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans&display=swap" rel="stylesheet">
 <style>
   body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #000;
-    color: #fff;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #faf6f1;
+    color: #3b2f1b;
     display: flex;
-    line-height: 1.5;
+    line-height: 1.6;
   }
 
   /* Sidebar */
@@ -21,20 +21,20 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 200px;
+    width: 220px;
     height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: #000;
+    background-color: #e9dcc9;
     padding: 10px;
     box-sizing: border-box;
   }
   .side-images img {
     width: 100%;
     object-fit: cover;
-    border-radius: 6px;
+    border-radius: 10px;
     margin-bottom: 10px;
-    opacity: 0.85;
+    opacity: 0.9;
     flex-grow: 1;
   }
   .side-images .logo {
@@ -47,79 +47,69 @@
 
   /* Main content */
   .content {
-    margin-left: 220px;
-    width: calc(100% - 220px);
-    padding-bottom: 2rem;
+    margin-left: 240px;
+    width: calc(100% - 240px);
     position: relative;
-  }
-
-  /* Watermark logo in top-left */
-  .watermark-logo {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    width: 150px;
-    opacity: 0.05;
-    z-index: 0;
+    padding-bottom: 2rem;
   }
 
   header {
     text-align: center;
-    padding: 1.5rem 1rem;
-    background-color: #000;
-    position: relative;
-    z-index: 1;
+    padding: 1.8rem 1rem;
+    background-color: #f4efe9;
+    border-bottom: 1px solid #d6c8a3;
   }
   header h1 {
-    color: gold;
+    font-family: 'Playfair Display', serif;
+    color: #705a2b;
     margin: 0;
-    font-size: 2rem;
+    font-size: 2.3rem;
   }
   header p {
-    color: #ccc;
+    color: #8a7750;
     margin-top: 0.3rem;
     font-size: 1.1rem;
   }
 
   .section {
-    padding: 1.2rem 1rem;
+    padding: 1.5rem 1rem;
     max-width: 900px;
     margin: auto;
-    position: relative;
-    z-index: 1;
   }
 
   /* About section */
   .about-text {
-    font-family: 'Roboto Slab', serif;
+    font-family: 'Playfair Display', serif;
     font-size: 1.15rem;
-    line-height: 1.7;
+    line-height: 1.8;
+    color: #3e2e1b;
     margin-bottom: 1.5rem;
   }
   .about-text span {
-    color: gold;
+    color: #b9922c;
     font-weight: bold;
   }
 
   /* Products section */
   .products {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1rem;
   }
   .card {
-    background-color: #111;
+    background-color: #fffdf9;
+    border: 1px solid #d2b97b;
+    border-radius: 10px;
     padding: 1rem;
-    border: 1px solid gold;
-    border-radius: 6px;
     text-align: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   }
   .card h3 {
-    color: gold;
+    color: #705a2b;
     margin-bottom: 0.5rem;
   }
   .card p {
-    color: #fff;
+    color: #3b2f1b;
     font-size: 0.95rem;
   }
 
@@ -132,33 +122,38 @@
   }
   .form-section input, .form-section textarea {
     padding: 0.6rem;
-    border: 1px solid gold;
-    border-radius: 6px;
-    background-color: #000;
-    color: #fff;
+    border: 1px solid #c8b27d;
+    border-radius: 8px;
+    background-color: #fffdf9;
+    color: #3b2f1b;
   }
   .form-section button {
-    padding: 0.6rem;
-    background-color: gold;
-    color: #000;
+    padding: 0.7rem;
+    background-color: #b9922c;
+    color: #fff;
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
     cursor: pointer;
     font-weight: bold;
+    letter-spacing: 0.5px;
+  }
+  .form-section button:hover {
+    background-color: #a68220;
   }
 
   /* Contact section */
   .contact-box {
-    border: 1px solid gold;
-    border-radius: 6px;
+    border: 1px solid #c8b27d;
+    border-radius: 8px;
     padding: 1rem;
     text-align: center;
     max-width: 400px;
     margin: auto;
-    background-color: #111;
+    background-color: #fffdf9;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
   }
   .contact-box a, .contact-box strong {
-    color: gold;
+    color: #705a2b;
     text-decoration: none;
   }
 
@@ -166,12 +161,12 @@
     text-align: center;
     padding: 1rem;
     margin-top: 2rem;
-    color: #aaa;
+    color: #8a7750;
     font-size: 0.9rem;
-    background-color: #111;
+    background-color: #f4efe9;
   }
 
-  /* Responsive adjustments for mobile */
+  /* Responsive adjustments */
   @media screen and (max-width: 768px) {
     body {
       flex-direction: column;
@@ -183,7 +178,7 @@
       height: auto;
       flex-direction: row;
       overflow-x: auto;
-      padding: 10px 0;
+      background-color: #f4efe9;
     }
 
     .side-images img {
@@ -198,83 +193,79 @@
       width: 100%;
       padding: 1rem;
     }
-
-    .watermark-logo {
-      display: none;
-    }
   }
 </style>
 </head>
 <body>
 
-  <!-- Sidebar with logo + images -->
+  <!-- Sidebar -->
   <div class="side-images">
-    <img src="ChatGPT Image Sep 29, 2025, 02_57_22 PM.png" alt="Logo" class="logo">
-    <img src="250810-F-RN563-9073.jpg" alt="Side Image 1">
-    <img src="250630-F-BQ566-9015.jpg" alt="Side Image 2">
-    <img src="250810-Z-QD029-9005.jpg" alt="Side Image 3">
+    <img src="ward-logo.png" alt="Logo" class="logo">
+    <img src="olive-grove.jpg" alt="Olive Grove">
+    <img src="bottling.jpg" alt="Bottling">
+    <img src="mediterranean-coast.jpg" alt="Mediterranean Coast">
   </div>
 
   <div class="content">
-    <!-- Watermark logo -->
-    <img src="ChatGPT Image Sep 29, 2025, 02_57_22 PM.jpg" alt="Watermark Logo" class="watermark-logo">
-
     <!-- Header -->
     <header>
-      <h1>Aurion Supply</h1>
-      <p>Precision Components for Aerospace & Defense</p>
+      <h1>Ward Mediterranean</h1>
+      <p>Authentic Tunisian Olive Oil, Crafted with Tradition</p>
     </header>
 
     <!-- About Section -->
     <section class="section">
       <div class="about-text">
-        <span>Aurion Supply</span> provides specialized aerospace and defense components, focusing on quality, certification, and reliable delivery. 
-        We connect international manufacturing expertise with U.S. market needs to provide high-grade products efficiently.
+        <span>Ward Mediterranean</span> imports high-quality extra virgin olive oil sourced from family-owned groves across Tunisia. 
+        We focus on authenticity, sustainability, and flavor — bringing the warmth of the Mediterranean to kitchens across America. 
+        Each batch is carefully selected, cold-pressed, and bottled with care to preserve its natural richness and aroma.
       </div>
     </section>
 
     <!-- Products Section -->
     <section class="section">
-      <h2>Our Products</h2>
+      <h2>Our Offerings</h2>
       <div class="products">
         <div class="card">
-          <h3>Specialty Aerospace Fasteners</h3>
-          <p>High-performance fasteners engineered for aerospace and defense applications.</p>
+          <h3>Extra Virgin Olive Oil</h3>
+          <p>Cold-pressed from hand-picked olives, our signature product delivers the perfect balance of smoothness and intensity.</p>
         </div>
         <div class="card">
-          <h3>Defense-Grade Components</h3>
-          <p>Reliable, certified components for defense contractors and military supply chains.</p>
+          <h3>Private Label & Bulk</h3>
+          <p>Available in food-grade drums or retail bottles, ideal for small businesses, restaurants, and distributors.</p>
         </div>
         <div class="card">
-          <h3>Precision Engineering Supplies</h3>
-          <p>Tools, fittings, and components to support high-spec engineering projects.</p>
+          <h3>Origin: Tunisia</h3>
+          <p>Our oils are sourced from trusted family producers in the Sahel and Sfax regions, known for their rich olive-growing heritage.</p>
         </div>
       </div>
     </section>
 
-    <!-- Request a Quote -->
+    <!-- Contact / Inquiry -->
     <section class="section form-section">
-      <h2>Request a Quote</h2>
+      <h2>Wholesale Inquiry</h2>
       <form action="https://formspree.io/f/xyzneazn" method="POST">
         <input type="text" name="name" placeholder="Your Name" required>
         <input type="email" name="_replyto" placeholder="Your Email" required>
-        <input type="text" name="product" placeholder="Product of Interest" required>
-        <textarea name="details" rows="4" placeholder="Additional Details"></textarea>
-        <button type="submit">Request Quote</button>
+        <input type="text" name="quantity" placeholder="Estimated Quantity (e.g., 260 gallons)" required>
+        <textarea name="message" rows="4" placeholder="Tell us more about your needs or packaging preferences"></textarea>
+        <button type="submit">Send Inquiry</button>
       </form>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact Info -->
     <section class="section">
       <div class="contact-box">
-        <p>Email: <a href="mailto:info@aurionsupply.com">info@aurionsupply.com</a></p>
+        <p>Email: <a href="mailto:info@wardmediterranean.com">info@wardmediterranean.com</a></p>
         <p>Phone: <strong>201-961-2651</strong></p>
+        <p>Location: North New Jersey, USA</p>
       </div>
     </section>
 
     <footer>
-      <p>&copy; 2025 Aurion Supply. All rights reserved.</p>
+      <p>&copy; 2025 Ward Mediterranean. All rights reserved.</p>
     </footer>
   </div>
 </body>
 </html>
+
