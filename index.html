@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ward Mediterranean</title>
-<!-- Google Font -->
+<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans&display=swap" rel="stylesheet">
 <style>
   body {
@@ -111,6 +111,31 @@
   .card p {
     color: #3b2f1b;
     font-size: 0.95rem;
+  }
+  .card button {
+    margin-top: 0.5rem;
+    padding: 0.6rem 0.8rem;
+    background-color: #b9922c;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  .card button:hover {
+    background-color: #a68220;
+  }
+
+  /* Cart section */
+  .cart ul {
+    margin: 0;
+    padding-left: 0;
+  }
+  .cart li {
+    margin-bottom: 0.5rem;
+  }
+  .cart button {
+    margin-top: 0.5rem;
   }
 
   /* Form section */
@@ -222,35 +247,52 @@
       </div>
     </section>
 
-    <!-- Products Section -->
+    <!-- Products / Shop Section -->
     <section class="section">
       <h2>Our Offerings</h2>
-      <div class="products">
-        <div class="card">
-          <h3>Extra Virgin Olive Oil</h3>
-          <p>Cold-pressed from hand-picked olives, our signature product delivers the perfect balance of smoothness and intensity.</p>
+      <div class="products" id="products">
+        <div class="card" data-id="1" data-name="250 ml – Tasting & Gifts" data-price="15">
+          <h3>250 ml – Tasting & Gifts</h3>
+          <p>Small, elegant bottles perfect for sampling our rich olive oil or giving as a gourmet gift.</p>
+          <p><strong>Price: $15</strong></p>
+          <button class="add-to-cart">Add to Cart</button>
         </div>
-        <div class="card">
-          <h3>Private Label & Bulk</h3>
-          <p>Available in food-grade drums or retail bottles, ideal for small businesses, restaurants, and distributors.</p>
+        <div class="card" data-id="2" data-name="500 ml – Everyday Use" data-price="25">
+          <h3>500 ml – Everyday Use</h3>
+          <p>Ideal for daily cooking, drizzling, and finishing dishes with the authentic taste of Tunisia.</p>
+          <p><strong>Price: $25</strong></p>
+          <button class="add-to-cart">Add to Cart</button>
         </div>
-        <div class="card">
-          <h3>Origin: Tunisia</h3>
-          <p>Our oils are sourced from trusted family producers in the Sahel and Sfax regions, known for their rich olive-growing heritage.</p>
+        <div class="card" data-id="3" data-name="1 L – Family & Frequent Cooks" data-price="45">
+          <h3>1 L – Family & Frequent Cooks</h3>
+          <p>A generous size for families or frequent cooks who want to share the Mediterranean experience.</p>
+          <p><strong>Price: $45</strong></p>
+          <button class="add-to-cart">Add to Cart</button>
         </div>
+      </div>
+
+      <!-- Cart -->
+      <div class="cart" style="margin-top:1.5rem; padding:1rem; border:1px solid #d2b97b; border-radius:10px; background:#fffdf9;">
+        <h3>Your Cart</h3>
+        <ul id="cart-items"></ul>
+        <p id="cart-total"><strong>Total: $0</strong></p>
+        <button id="checkout-button" style="padding:0.7rem; background:#b9922c; color:#fff; border:none; border-radius:8px; cursor:pointer;">Checkout</button>
       </div>
     </section>
 
-    <!-- Contact / Inquiry -->
+    <!-- Contact / Shop Inquiry -->
     <section class="section form-section">
-      <h2>Wholesale Inquiry</h2>
+      <h2>Contact Us</h2>
       <form action="https://formspree.io/f/xyzneazn" method="POST">
         <input type="text" name="name" placeholder="Your Name" required>
         <input type="email" name="_replyto" placeholder="Your Email" required>
-        <input type="text" name="quantity" placeholder="Estimated Quantity (e.g., 260 gallons)" required>
-        <textarea name="message" rows="4" placeholder="Tell us more about your needs or packaging preferences"></textarea>
-        <button type="submit">Send Inquiry</button>
+        <input type="text" name="subject" placeholder="Subject (e.g., Product Inquiry, Order Question)" required>
+        <textarea name="message" rows="4" placeholder="Tell us how we can help you or ask about our products"></textarea>
+        <button type="submit">Send Message</button>
       </form>
+      <p style="margin-top:0.5rem; text-align:center; color:#8a7750; font-size:0.9rem;">
+        We respond promptly—usually within a few hours.
+      </p>
     </section>
 
     <!-- Contact Info -->
@@ -266,7 +308,71 @@
       <p>&copy; 2025 Ward Mediterranean. All rights reserved.</p>
     </footer>
   </div>
+
+  <!-- Stripe JS -->
+  <script src="https://js.stripe.com/v3/"></script>
+  <script>
+    // Cart logic
+    const cart = [];
+    const cartItemsEl = document.getElementById('cart-items');
+    const cartTotalEl = document.getElementById('cart-total');
+
+    function updateCart() {
+      cartItemsEl.innerHTML = '';
+      let total = 0;
+      cart.forEach(item => {
+        total += item.price * item.quantity;
+        const li = document.createElement('li');
+        li.textContent = `${item.name} x ${item.quantity} - $${item.price * item.quantity}`;
+        cartItemsEl.appendChild(li);
+      });
+      cartTotalEl.innerHTML = `<strong>Total: $${total}</strong>`;
+    }
+
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+      button.addEventListener('click', e => {
+        const card = e.target.closest('.card');
+        const id = card.dataset.id;
+        const name = card.dataset.name;
+        const price = parseFloat(card.dataset.price);
+
+        const existing = cart.find(i => i.id === id);
+        if (existing) {
+          existing.quantity += 1;
+        } else {
+          cart.push({ id, name, price, quantity: 1 });
+        }
+        updateCart();
+      });
+    });
+
+    // Stripe checkout
+    const stripe = Stripe('YOUR_STRIPE_PUBLISHABLE_KEY'); // Replace with your Stripe key
+    document.getElementById('checkout-button').addEventListener('click', async () => {
+      if(cart.length === 0){
+        alert('Your cart is empty!');
+        return;
+      }
+      const line_items = cart.map(item => ({
+        price_data: {
+          currency: 'usd',
+          product_data: { name: item.name },
+          unit_amount: item.price * 100
+        },
+        quantity: item.quantity
+      }));
+
+      // Call backend to create session
+      const response = await fetch('/create-checkout-session', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ line_items })
+      });
+
+      const session = await response.json();
+      stripe.redirectToCheckout({ sessionId: session.id });
+    });
+  </script>
+
 </body>
 </html>
-
-
